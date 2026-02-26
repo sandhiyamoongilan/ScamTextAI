@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F‑Secure Text Message Checker - Scam Check</title>
+    <style>
+        body { font-family:Arial; margin:0; background:#0f0f1f; color:white; }
+        .navbar { background:white; color:#333; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; }
+        .navbar button { padding:6px 12px; border:none; background:#ff4d4d; color:white; border-radius:6px; cursor:pointer; }
+        .container { text-align:center; margin-top:50px; }
+        textarea { width:60%; height:100px; border-radius:10px; padding:10px; font-size:16px; }
+        .check-btn { margin-top:20px; padding:12px 25px; background:#4CAF50; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; }
+        .back-btn { margin-top:20px; padding:12px 25px; background:#2196F3; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; margin-left:10px; }
+        .history { margin-top:30px; text-align:left; width:60%; margin-left:auto; margin-right:auto; }
+        .history-item { background:#222; padding:10px; margin-bottom:10px; border-radius:8px; }
+        .footer { text-align:center; margin-top:50px; color:#ccc; font-size:14px; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>F‑Secure Text Message Checker</h2>
+    <div style="display:flex; align-items:center; gap:15px;">
+        <span>{{ user }} ({{ email }})</span>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Copy and paste the message below (be careful not to open links)</h2>
+    <form method="POST" action="/predict">
+        <textarea name="message" placeholder="Paste message here..." required>{{ last_message or '' }}</textarea>
+        <br>
+        <button class="check-btn" type="submit">Check Message</button>
+        <a href="/"><button class="back-btn" type="button">Back Home</button></a>
+    </form>
+
+    {% if prediction_text %}
+        <h3 style="margin-top:20px;">Result: {{ prediction_text }}</h3>
+    {% endif %}
+
+    {% if history %}
+        <div class="history">
+            <h3>Last 10 Messages:</h3>
+            {% for item in history %}
+                <div class="history-item">
+                    <strong>Message:</strong> {{ item.message }} <br>
+                    <strong>Result:</strong> {{ item.result }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="footer">
+    Developed by Dhiya 🔥
+</div>
+
+</body>
+</html>

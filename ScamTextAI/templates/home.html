@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F‑Secure Text Message Checker</title>
+    <style>
+        body { margin:0; font-family:Arial; color:white; background:#0f0f1f; }
+        .navbar { background:white; color:#333; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; }
+        .navbar span { font-weight:500; }
+        .navbar button { padding:6px 12px; border:none; background:#ff4d4d; color:white; border-radius:6px; cursor:pointer; }
+
+        .main-container { display:flex; height:calc(100vh - 80px); }
+        .left-side {
+            flex:1;
+            background: url('{{ url_for('static', filename='images/dhiya.png') }}') no-repeat center center;
+            background-size: contain;
+        }
+        .right-side {
+            flex:2;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:50px;
+        }
+        .hero h1 { font-size:50px; color:#00ffcc; margin-bottom:20px; }
+        .hero p { font-size:20px; margin-bottom:40px; color:#ccc; }
+        .buttons a button { padding:15px 30px; border:none; background:#4CAF50; color:white; border-radius:10px; margin:10px; font-size:18px; cursor:pointer; }
+        .footer { text-align:center; margin-top:50px; color:#ccc; font-size:14px; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>F‑Secure Text Message Checker</h2>
+    <div style="display:flex; align-items:center; gap:15px;">
+        <span>{{ user }} ({{ email }})</span>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="left-side"></div>
+    <div class="right-side">
+        <div class="hero">
+            <h1>Welcome, {{ user }}</h1>
+            <p>Protect yourself from scam messages with AI-powered detection.</p>
+        </div>
+        <div class="buttons">
+            <a href="/check"><button>Check a New Message</button></a>
+        </div>
+        <div class="footer">Developed by Dhiya 🔥</div>
+    </div>
+</div>
+
+</body>
+</html>

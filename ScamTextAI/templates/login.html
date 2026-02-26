@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F‑Secure Text Message Checker - Login</title>
+</head>
+<body style="margin:0; font-family:Arial; display:flex; justify-content:center; align-items:center; height:100vh; background:linear-gradient(135deg,#6a11cb,#2575fc); color:white;">
+
+<div style="background:white; color:#333; padding:50px; border-radius:15px; text-align:center; width:400px; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+    <h2>Login to F‑Secure Text Message Checker</h2>
+    <p>Choose login method:</p>
+    
+    <a href="/login_google">
+        <button style="padding:12px 25px; border:none; background:#4285F4; color:white; border-radius:8px; cursor:pointer; font-size:16px; margin-bottom:10px;">
+            Login with Google
+        </button>
+    </a>
+    
+    <p>OR</p>
+    
+    <form method="POST" action="/login_manual">
+        <input type="email" name="email" placeholder="Enter email" required style="width:80%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+        <input type="password" name="password" placeholder="Enter password" required style="width:80%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+        <br>
+        <button type="submit" style="padding:12px 25px; border:none; background:#4CAF50; color:white; border-radius:8px; cursor:pointer; font-size:16px;">
+            Login
+        </button>
+    </form>
+</div>
+
+</body>
+</html>
